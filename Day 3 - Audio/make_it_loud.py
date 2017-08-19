@@ -7,7 +7,7 @@ n = file.getnframes() # узнаем число число фреймов (зн�
 data = file.readframes(n) # считываем все фреймы
 print(data[:100]) # это байт строка
 
-frames = struct.unpack("@{0}h".format(n), data) # преобразуем строку в кортеж из чисел
+frames = list(struct.unpack("@{0}h".format(n), data)) # преобразуем строку в кортеж из чисел
 # @ - порядок бит в байте - нативный
 # посередине - количестве
 # h - двухбайтовые числа (short)
@@ -28,5 +28,5 @@ print(loud_data[:100])
 output_file = wave.open("result.wav", 'w')
 output_file.setparams(file.getparams())
 output_file.writeframes(loud_data)
-
+output_file.close()
 
