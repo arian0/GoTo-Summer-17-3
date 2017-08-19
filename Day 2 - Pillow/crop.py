@@ -20,8 +20,8 @@ cat = img.crop([img.width // 5, img.height // 5, 4 * img.width // 5, 4 * img.hei
 cat_small = img.crop([img.width // 3, img.height // 3, 2 * img.width // 3, 2 * img.height // 3])
 
 cat = invert(cat).transpose(Image.FLIP_LEFT_RIGHT)
-img.paste(cat, [img.width // 5, img.height // 5, 4 * img.width // 5, 4 * img.height // 5])
-img.paste(cat_small, [img.width // 3, img.height // 3, 2 * img.width // 3, 2 * img.height // 3])
+img.paste(cat, [img.width // 5, img.height // 5])
+img.paste(cat_small, [img.width // 3, img.height // 3])
 
 
 
