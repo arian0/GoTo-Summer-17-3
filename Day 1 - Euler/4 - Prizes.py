@@ -1,5 +1,4 @@
-from random import choice
-
+import random
 for i in range(10):
     print(i)
 print("10...Лотерея!!!")
@@ -10,6 +9,6 @@ prizes = ["А-а-а-втомобиль!", "Банка с огурцами", "О�
 people = ["Дед Макар", "Путин", "Шмель", "Твоя собака"]
 
 for participant in people:
-    prize = choice(prizes)
+    prize = random.choice(prizes)
     print("{0} получает лот '{1}'! Поздравляем!"
           .format(participant, prize))
