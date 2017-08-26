@@ -53,7 +53,7 @@ class MainHandler(tornado.web.RequestHandler):
 class ThreadHandler(tornado.web.RequestHandler):
     def get(self):
         # выдача страницы с постами
-        # TODO: Написать шаблон для страницы с постами (пожий на главную страницу)
+        # TODO: Написать шаблон для страницы с постами (похожий на главную страницу)
         # TODO: Взять тред из монги, у которого {'_id': ObjectId(self.get_argument('id'))}
         # TODO: Зарендерить шаблон с постами этого треда
         pass
