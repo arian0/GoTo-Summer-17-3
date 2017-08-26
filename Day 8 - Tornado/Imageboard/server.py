@@ -40,7 +40,7 @@ class MainHandler(tornado.web.RequestHandler):
         self.render("threads.html", threads=threads)
 
     def post(self):
-        # добавление поста
+        # добавление треда
         name = self.get_argument("name")
         thread = {"name": name, "posts": []}
 
