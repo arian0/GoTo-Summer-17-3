@@ -55,16 +55,29 @@ class ThreadHandler(tornado.web.RequestHandler):
         # выдача страницы с постами
         # TODO: Написать шаблон для страницы с постами (похожий на главную страницу)
         # TODO: Взять тред из монги, у которого {'_id': ObjectId(self.get_argument('id'))}
+        id = self.get_argument('id')
+        thread = threads_collection.find_one({'_id': ObjectId(id)})
+
         # TODO: Зарендерить шаблон с постами этого треда
-        pass
+        self.render("posts.html", thread=thread)
 
     def post(self):
         # добавление поста
         # TODO: Получить параметры из запроса (self.get_argument...)
+        id = self.get_argument('id')
+        author = self.get_argument('author')
+        text = self.get_argument('text')
+
         # TODO: сделать новый пост
+        post = {"author": author, "text": text}
+
         # TODO: добавить пост в тред и сохранить в монге
+        thread = threads_collection.find_one({'_id': ObjectId(id)})
+        thread['posts'].append(post)
+        threads_collection.update({'_id': ObjectId(id)}, thread)
+
         # TODO: редирект на страницу с постами
-        pass
+        self.redirect('/thread?id={0}'.format(id))
 
 
 routes = [
